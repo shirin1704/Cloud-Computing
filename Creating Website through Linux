@@ -1,0 +1,122 @@
+PS C:\Users\Shirin Sabuwala\Downloads> ssh -i "key.pem" ec2-user@ec2-13-53-132-96.eu-north-1.compute.amazonaws.com
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+Last login: Wed Mar 13 08:21:24 2024 from 49.15.229.37
+[ec2-user@ip-172-31-46-172 ~]$ sudo yum install -y
+usage: yum install [-c [config file]] [-q] [-v] [--version] [--installroot [path]] [--nodocs] [--noplugins]
+                   [--enableplugin [plugin]] [--disableplugin [plugin]] [--releasever RELEASEVER] [--setopt SETOPTS]
+                   [--skip-broken] [-h] [--allowerasing] [-b | --nobest] [-C] [-R [minutes]] [-d [debug level]]
+                   [--debugsolver] [--showduplicates] [-e ERRORLEVEL] [--obsoletes]
+                   [--rpmverbosity [debug level name]] [-y] [--assumeno] [--enablerepo [repo]] [--disablerepo [repo] |
+                   --repo [repo]] [--enable | --disable] [-x [package]] [--disableexcludes [repo]]
+                   [--repofrompath [repo,path]] [--noautoremove] [--nogpgcheck] [--color COLOR] [--refresh] [-4] [-6]
+                   [--destdir DESTDIR] [--downloadonly] [--comment COMMENT] [--bugfix] [--enhancement] [--newpackage]
+                   [--security] [--advisory ADVISORY] [--bz BUGZILLA] [--cve CVES]
+                   [--sec-severity {Critical,Important,Moderate,Medium,Low}] [--forcearch ARCH]
+                   PACKAGE [PACKAGE ...]
+yum install: error: the following arguments are required: PACKAGE
+[ec2-user@ip-172-31-46-172 ~]$ sudo yum update -y
+Last metadata expiration check: 0:20:10 ago on Wed Mar 13 08:19:38 2024.
+Dependencies resolved.
+Nothing to do.
+Complete!
+[ec2-user@ip-172-31-46-172 ~]$ sudo yum install httpd -y
+Last metadata expiration check: 0:20:22 ago on Wed Mar 13 08:19:38 2024.
+Package httpd-2.4.58-1.amzn2023.x86_64 is already installed.
+Dependencies resolved.
+Nothing to do.
+Complete!
+[ec2-user@ip-172-31-46-172 ~]$ sudo systemctl start httpd
+[ec2-user@ip-172-31-46-172 ~]$ sudo systemctl enable httpd
+Created symlink /etc/systemd/system/multi-user.target.wants/httpd.service → /usr/lib/systemd/system/httpd.service.
+[ec2-user@ip-172-31-46-172 ~]$ sudo usermod -a -G apache ec2-user
+[ec2-user@ip-172-31-46-172 ~]$ sudo chmod 777 /var/www/html
+[ec2-user@ip-172-31-46-172 ~]$ cd /var/www/html
+[ec2-user@ip-172-31-46-172 html]$ touc index.html
+-bash: touc: command not found
+[ec2-user@ip-172-31-46-172 html]$ touch index.html
+[ec2-user@ip-172-31-46-172 html]$ <!DOCTYPE html>
+-bash: !DOCTYPE: event not found
+[ec2-user@ip-172-31-46-172 html]$ ls
+index.html
+[ec2-user@ip-172-31-46-172 html]$ nano index.html
+[ec2-user@ip-172-31-46-172 html]$ ls
+index.html
+[ec2-user@ip-172-31-46-172 html]$ cat index.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Webserver</title>
+</head>
+<body>
+<h1>Webserver</h1>
+<h2>deployment</h2>
+<h3>successful</h3>
+<p>Welcome to Cloud Computing</p>
+</body>
+</html>
+[ec2-user@ip-172-31-46-172 html]$ client_loop: send disconnect: Connection reset
+PS C:\Users\Shirin Sabuwala\Downloads> ssh -i "key.pem" ec2-user@ec2-13-53-132-96.eu-north-1.compute.amazonaws.com
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+Last login: Wed Mar 13 08:39:30 2024 from 49.15.229.37
+[ec2-user@ip-172-31-46-172 ~]$ sudo systemctl start httpd
+[ec2-user@ip-172-31-46-172 ~]$ sudo systemctl enable httpd
+[ec2-user@ip-172-31-46-172 ~]$ sudo usermod -a -G apache ec2-user
+[ec2-user@ip-172-31-46-172 ~]$ sudo chmod 777 /var/www/html
+[ec2-user@ip-172-31-46-172 ~]$ cd /var/www/html
+[ec2-user@ip-172-31-46-172 html]$ touch shirin.html
+[ec2-user@ip-172-31-46-172 html]$ ls
+index.html  shirin.html
+[ec2-user@ip-172-31-46-172 html]$ nano shirin.html
+[ec2-user@ip-172-31-46-172 html]$ cat shirin.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shirin Sabuwala</title>
+</head>
+<body bgcolor="LightGray">
+<h1>Experiment</h1>
+<h2>Testing a website</h2>
+<p style="color:DarkOliveGreen">Creating a website on my own to test this out<br>
+Sidd, Nahush and Sayiom are doing timepass.<br>
+Okay this is my last line, bye.</p>
+</body>
+</html>
+[ec2-user@ip-172-31-46-172 html]$ rm index.html
+[ec2-user@ip-172-31-46-172 html]$ ls
+shirin.html
+[ec2-user@ip-172-31-46-172 html]$ mv shirin.html index.html
+[ec2-user@ip-172-31-46-172 html]$ ls
+index.html
+[ec2-user@ip-172-31-46-172 html]$ cat index.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shirin Sabuwala</title>
+</head>
+<body bgcolor="LightGray">
+<h1>Experiment</h1>
+<h2>Testing a website</h2>
+<p style="color:DarkOliveGreen">Creating a website on my own to test this out<br>
+Sidd, Nahush and Sayiom are doing timepass.<br>
+Okay this is my last line, bye.</p>
+</body>
+</html>
+[ec2-user@ip-172-31-46-172 html]$
